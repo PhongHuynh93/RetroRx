@@ -54,6 +54,7 @@ public class ActivityView extends AppCompatActivity implements OnClickListener {
         }
     }
 
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -61,6 +62,10 @@ public class ActivityView extends AppCompatActivity implements OnClickListener {
 
     }
 
+    /**
+     * todo 6- when click, remember that the button has been clicked, so after the config change, we will load it instantly
+     * @param outState
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);

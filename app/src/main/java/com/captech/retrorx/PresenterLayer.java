@@ -22,10 +22,16 @@ public class PresenterLayer implements PresenterInteractor {
         this.service = service;
     }
 
+    /**
+     * todo 5 - presenter call observable
+     */
     public void loadRxData(){
         view.showRxInProcess();
+        // use cache
         Observable<FriendResponse> friendResponseObservable = (Observable<FriendResponse>)
                 service.getPreparedObservable(service.getAPI().getFriendsObservable(), FriendResponse.class, true, true);
+        // each time we call subscribe() from any observer we will reuse any response/request that has already been made.
+//        This means our onNext() and onComplete() will fire instantaneously if the response has already been returned and our request will only be made once.
         subscription = friendResponseObservable.subscribe(new Observer<FriendResponse>() {
             @Override
             public void onCompleted() {
