@@ -49,12 +49,12 @@ public class PresenterLayer implements PresenterInteractor {
         Call<FriendResponse> call = service.getAPI().getFriends();
         call.enqueue(new Callback<FriendResponse>() {
             @Override
-            public void onResponse(Response<FriendResponse> response) {
+            public void onResponse(Call<FriendResponse> call, Response<FriendResponse> response) {
                 view.showRetroResults(response);
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<FriendResponse> call, Throwable t) {
                 view.showRetroFailure(t);
             }
         });
