@@ -54,7 +54,9 @@ public class ActivityView extends AppCompatActivity implements OnClickListener {
         }
     }
 
-
+    /**
+     * todo 7 - remember to unsubscribe it when onPause, for GC and tell Rxjava not update the UI
+     */
     @Override
     protected void onPause() {
         super.onPause();
